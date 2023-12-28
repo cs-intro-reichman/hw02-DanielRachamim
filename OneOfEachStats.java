@@ -21,7 +21,7 @@ public class OneOfEachStats {
 		int most_common = 0;
 		int maximum_frequency = 0;
 		
-        for(int i = 0; i <= experiments; i++){
+        for(int i = 0; i < experiments; i++){
         	boolean its_a_boy = false;
         	boolean its_a_girl = false;
         	int sum = 0;

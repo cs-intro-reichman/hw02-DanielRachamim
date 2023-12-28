@@ -14,7 +14,7 @@ public class OneOfEachStats1 {
 		int most_common = 0;
 		int maximum_frequency = 0;
 		
-        for(int i = 0; i <= experiments; i++){
+        for(int i = 0; i < experiments; i++){
         	boolean its_a_boy = false;
         	boolean its_a_girl = false;
         	int sum = 0;
@@ -53,7 +53,19 @@ public class OneOfEachStats1 {
         System.out.println("Number of families with 2 children: " + two_children);
         System.out.println("Number of families with 3 children: " + three_children);
         System.out.println("Number of families with 4 or more children: " + four_or_more);
-        System.out.println("The most common number of children is " + most_common);
+        if (most_common > 4){
+        	System.out.println("The most common number of children is 4 or more");
+        } else {
+        	System.out.println("The most common number of children is " + most_common);
+        }
+        //if (two_children == three_children){
+        //	most_common = two_children;
+        //} else if (three_children == four_or_more){ 
+        //	most_common = three_children;
+        //} else if (two_children == four_or_more){
+        //	most_common = two_children;
+        //}     
+        //System.out.println("The most common number of children is " + most_common);
     }
 
 }
