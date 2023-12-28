@@ -42,28 +42,29 @@ public class OneOfEachStats {
         }
 
 
-        // Display results
-        double averageChildren = total_experiments / experiments;
-        System.out.println("Average: " + averageChildren + " children to get at least one of each gender.");
-        System.out.println("Number of families with 2 children: " + two_children);
-        System.out.println("Number of families with 3 children: " + three_children);
-        System.out.println("Number of families with 4 or more children: " + four_or_more);
+    // Display results
+    double averageChildren = total_experiments / experiments;
+    System.out.println("Average: " + averageChildren + " children to get at least one of each gender.");
+    System.out.println("Number of families with 2 children: " + two_children);
+    System.out.println("Number of families with 3 children: " + three_children);
+    System.out.println("Number of families with 4 or more children: " + four_or_more);
 
-        // Most common number of children
-        if ((two_children > three_children) && (two_children > two_children)) {
-            System.out.println("The most common number of children is 2.");
-        } else if ((three_children > two_children) && (three_children > four_or_more)) {
-            System.out.println("The most common number of children is 3.");
-        } else if ((four_or_more > two_children) && (four_or_more > three_children)) {
-            System.out.println("The most common number of children is 4 or more.");
-        } else if ((three_children > two_children) && (three_children == four_or_more)) {
-            System.out.println("The most common number of children is 3.");
-        } else if ((two_children > four_or_more) && (three_children == two_children)) {
-            System.out.println("The most common number of children is 2.");
-        } else if ((two_children == four_or_more) && (three_children == two_children)) {
-            System.out.println("The most common number of children is 2.");
-        System.out.println();
-        }
+    // Most common number of children
+    if ((two_children > three_children) && (two_children > two_children)) {
+        System.out.println("The most common number of children is 2.");
+    } else if ((three_children > two_children) && (three_children > four_or_more)) {
+        System.out.println("The most common number of children is 3.");
+    } else if ((four_or_more > two_children) && (four_or_more > three_children)) {
+        System.out.println("The most common number of children is 4 or more.");
+    } else if ((three_children > two_children) && (three_children == four_or_more)) {
+        System.out.println("The most common number of children is 3.");
+    } else if ((two_children > four_or_more) && (three_children == two_children)) {
+        System.out.println("The most common number of children is 2.");
+    } else if ((two_children == four_or_more) && (three_children == two_children)) {
+        System.out.println("The most common number of children is 2.");
+    System.out.println();
+
+       } 
     }
 }
         
