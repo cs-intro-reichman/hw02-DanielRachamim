@@ -8,38 +8,35 @@ import java.util.Random;
  *  Example usage: % java OneOfEachStats 1000 1
  */
 public class OneOfEachStats {
-	public static void main (String[] args) {
-		// Gets the two command-line arguments
-		int experiments = Integer.parseInt(args[0]);
-		int seed = Integer.parseInt(args[1]);
-		// Initailizes a random numbers generator with the given seed value
-        Random generator = new Random(seed);
-		int two_children = 0;
-		int three_children = 0;
-		int four_or_more = 0;
-		double total_children = 0;
-		int most_common = 0;
-		int maximum_frequency = 0;
-		
-        for(int i = 0; i < experiments; i++){
-        	boolean its_a_boy = false;
-        	boolean its_a_girl = false;
-        	int sum = 0;
-       
-	        while (!(its_a_boy && its_a_girl)) {
-	            //Simulates the birth of a boy or a girl 
-	            boolean Girl = generator.nextDouble() < 0.5;
+    public static void main(String[] args) {
+        int experiments = Integer.parseInt(args[0]);
+        int two_children = 0;
+        int three_children = 0;
+        int four_or_more = 0;
+        double total_children = 0;
+        int most_common = 0;
+        int maximum_frequency = 0;
+        Random generator = new Random();
 
-	            // Update the flags based on the gender of the newborn
-	            if (Girl) {
-	                its_a_girl = true;
-	            } else {
-	                its_a_boy = true;
-	            }
-	            sum++;
-	  		}
-	  		total_children += sum;
-	  		if (sum == 2) {
+        for (int i = 0; i < experiments; i++) {
+            boolean its_a_boy = false;
+            boolean its_a_girl = false;
+            int sum = 0;
+
+            while (!(its_a_boy && its_a_girl)) {
+                boolean Girl = generator.nextDouble() < 0.5;
+
+                if (Girl) {
+                    its_a_girl = true;
+                } else {
+                    its_a_boy = true;
+                }
+                sum++;
+            }
+
+            total_children += sum;
+
+            if (sum == 2) {
                 two_children++;
             } else if (sum == 3) {
                 three_children++;
@@ -51,6 +48,8 @@ public class OneOfEachStats {
             if (sum > maximum_frequency) {
                 most_common = sum;
                 maximum_frequency = sum;
+            } else if (sum == most_common) {
+                maximum_frequency++;
             }
         }
 
@@ -60,17 +59,18 @@ public class OneOfEachStats {
         System.out.println("Number of families with 2 children: " + two_children);
         System.out.println("Number of families with 3 children: " + three_children);
         System.out.println("Number of families with 4 or more children: " + four_or_more);
-        System.out.println("The most common number of children is " + most_common);  
-		
-		//// In the previous version of this program, you used a statement like:
-		//// double rnd = Math.random();
-		//// Where "rnd" is the variable that stores the generated random value.
-		//// In this version of the program, replace this statement with:
-		//// double rnd = generator.nextDouble();
-		//// This statement will generate a random value in the range [0,1),
-		//// just like you had in the previous version, except that the 
-		//// randomization will be based on the given seed.
-		//// This is the only change that you have to do in the program.
-		    
-	}
+        if (most_common > 4) {
+            System.out.println("The most common number of children is 4 or more");
+        } else {
+            System.out.println("The most common number of children is " + most_common);
+        }
+    }
 }
+        //if (two_children == three_children){
+        //	most_common = two_children;
+        //} else if (three_children == four_or_more){ 
+        //	most_common = three_children;
+        //} else if (two_children == four_or_more){
+        //	most_common = two_children;
+        //}     
+        //System.out.println("The most common number of children is " + most_common);
