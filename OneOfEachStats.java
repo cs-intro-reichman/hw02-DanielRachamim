@@ -10,10 +10,57 @@ import java.util.Random;
 public class OneOfEachStats {
 	public static void main (String[] args) {
 		// Gets the two command-line arguments
-		int T = Integer.parseInt(args[0]);
+		int experiments = Integer.parseInt(args[0]);
 		int seed = Integer.parseInt(args[1]);
 		// Initailizes a random numbers generator with the given seed value
-        Random generator = new Random(seed);  
+        Random generator = new Random(seed);
+		int two_children = 0;
+		int three_children = 0;
+		int four_or_more = 0;
+		double total_children = 0;
+		int most_common = 0;
+		int maximum_frequency = 0;
+		
+        for(int i = 0; i <= experiments; i++){
+        	boolean its_a_boy = false;
+        	boolean its_a_girl = false;
+        	int sum = 0;
+       
+	        while (!(its_a_boy && its_a_girl)) {
+	            //Simulates the birth of a boy or a girl 
+	            boolean Girl = generator.nextDouble() < 0.5;
+
+	            // Update the flags based on the gender of the newborn
+	            if (Girl) {
+	                its_a_girl = true;
+	            } else {
+	                its_a_boy = true;
+	            }
+	            sum++;
+	  		}
+	  		total_children += sum;
+	  		if (sum == 2) {
+                two_children++;
+            } else if (sum == 3) {
+                three_children++;
+            } else if (sum >= 4) {
+                four_or_more++;
+            }
+
+            // Updating the most common number of children
+            if (sum > maximum_frequency) {
+                most_common = sum;
+                maximum_frequency = sum;
+            }
+        }
+
+        // Display results
+        double averageChildren = total_children / experiments;
+        System.out.println("Average: " + averageChildren + " children to get at least one of each gender.");
+        System.out.println("Number of families with 2 children: " + two_children);
+        System.out.println("Number of families with 3 children: " + three_children);
+        System.out.println("Number of families with 4 or more children: " + four_or_more);
+        System.out.println("The most common number of children is " + most_common);  
 		
 		//// In the previous version of this program, you used a statement like:
 		//// double rnd = Math.random();
