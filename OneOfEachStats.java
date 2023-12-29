@@ -3,7 +3,7 @@ public class OneOfEachStats {
     public static void main(String[] args) {
         int experiments = Integer.parseInt(args[0]);
         int seed = Integer.parseInt(args[1]);
-        Random generator = new Random(seed); //set the seed value
+    Random generator = new Random(seed); //set the seed value
         
         //Relevent variables for aggregating
         int two_children = 0;
@@ -18,7 +18,6 @@ public class OneOfEachStats {
             int total_children = 0;
             while ((its_a_boy < 1) || (its_a_girl < 1)) {
                 double which_gender = generator.nextDouble();
-
                 if (which_gender < 0.5) {
                     its_a_boy++;
                 } else {
@@ -41,7 +40,7 @@ public class OneOfEachStats {
 
 
         // Display results
-        double averageChildren = total_experiments / experiments;
+        double averageChildren = (double) total_experiments / experiments;
         System.out.println("Average: " + averageChildren + " children to get at least one of each gender.");
         System.out.println("Number of families with 2 children: " + two_children);
         System.out.println("Number of families with 3 children: " + three_children);
