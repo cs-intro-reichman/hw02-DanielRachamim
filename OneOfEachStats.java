@@ -11,7 +11,7 @@ public class OneOfEachStats {
         int four_or_more = 0;
         int total_experiments = 0;
         
-
+        //Loop through the specified number of experiments
         for (int i = 0; i < experiments; i++) {
             int its_a_boy = 0;
             int its_a_girl = 0;
@@ -27,6 +27,8 @@ public class OneOfEachStats {
             //Getting the number of total children
             total_children = its_a_boy + its_a_girl;
 
+
+            //Updating counters based on the total number of children
             if (total_children == 2) {
                 two_children++;
             } else if (total_children == 3) {
@@ -35,6 +37,7 @@ public class OneOfEachStats {
                 four_or_more++;
             }
 
+            //Updating the total number of children across all experiments
             total_experiments = total_experiments + total_children;
         }
 
