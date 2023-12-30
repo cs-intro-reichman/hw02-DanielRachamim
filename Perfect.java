@@ -30,19 +30,3 @@ public class Perfect {
 
 
 
-
-
-
-
-//public class Perfect {
-//	public static void main (String[] args) {
-//		int num = Integer.parseInt(args[0]);
-//		string str = string(num) + "is a perfect number since " + string(num) + " = 1"
-//		System.out.println(str);
-//		for (int i = 1; i <= num; i++) {
-//            while (num % i == 0) {
-//            	str.concat(" + " + string(i));
-//            	System.out.println(str);
-//           	if ()
-	//}
-//}
